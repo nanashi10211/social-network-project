@@ -1,51 +1,42 @@
 <?php
     ini_set('display_errors', '1');
     error_reporting(E_ALL);
-    include_once("./helpers/database/database.php");
-    include_once("./helpers/model-utilitis/Model.php");
+    // models
+    include_once("./models/User.php");
+    include_once("./models/Message.php");
+    include_once("./models/Session.php");
+    include_once("./functions/views.php");
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>social project</title>
-</head>
-<body>
-    <?php
-        echo "This will be social project<br>";
-        $test = new Model($conn);
-        $test->create("User", [
-            "PersonID" => "int(6) AUTO_INCREMENT PRIMARY KEY",
-            "LastName" => "varchar(255)",
-            "FirstName" => "varchar(255)",
-            "Age" => "varchar(255)"
-        ]);
+<!-- page header -->
+<?php getHeader(); ?>
 
-        // $test->insert([
-        //     "LastName" => "kalin",
-        //     "FirstName" => "linux",
-        //     "Age" => "100"
-        // ]);
+<!-- main body -->
+<div class="container-fluid">
+    <div class="row">
+       <!-- side nav -->
+        <?php getSiderNav(); ?>
 
-        // $test->updateById(1,[
-        //     "LastName" => "new karnel",
-        //     "Age" => "100"
-        // ]);
+        <!-- main content -->
+        <div class="offset-3 col-md-7 mid-content">
+            <div class="mid-content-box">
+                <!-- create post form -->
+                <div class="create-post">
 
-        // $test->delete(["PersonID", "1"])
-        // $test->find(["PersonID", "FirstName"]);
-        foreach($test->find() as $row) {
-            print_r($row);
-            echo "<br>";
-        }
-            
+                </div>
+            </div>
+        </div>
 
-      
+        <!-- right content -->
+        <div class="col-md-3 right-content">
+            <div class="right-content-box">
+              
+            </div>
+        </div>
+    </div>
+</div>
 
-    ?>
-</body>
-</html>
 
+<!-- page footer -->
+<?php getFooter(); ?>

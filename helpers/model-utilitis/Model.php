@@ -187,13 +187,6 @@ class Model {
         return $this->fields;
     }
 
-    /**
-     *............................
-     * @destructor
-     * ...........................
-     */
-    public function __destruct() {
-        mysqli_close($this->conn);
-    }
+  
      
 }

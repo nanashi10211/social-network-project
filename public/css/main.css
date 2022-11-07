@@ -1,0 +1,167 @@
+/* 
+..........................................................................................................
+                                            common css
+..........................................................................................................
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+
+/**
+ avatar design
+*/
+.avatar {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid green;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* 
+...................................................................................................................................
+                                                                side nav box 
+...................................................................................................................................
+*/
+.side-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 0;
+}
+
+.side-nav .side-nav-box {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-shadow: 0px 0px 7px 0px #b7b7b7;  
+}
+
+/* user profile list box */
+.side-nav-box .user-profile {
+   padding: 0;
+   display: flex;
+   align-items: center;
+   justify-content: start;
+   flex-direction: row;
+   border: 0;
+   background-color: #0a122e;
+   padding: 20px 10px;
+  
+
+}
+
+.side-nav-box .user-profile .avatar {
+   margin-bottom: 10px;
+}
+
+.side-nav-box .user-profile span {
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: #999;
+    margin-left: 20px;
+}
+
+/* menu box */
+.side-nav-box-menu-list {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+.side-nav-box-list .nav-item {
+    font-size: 15px;
+    font-weight: 400;
+    padding-left: 10px;
+    font-style: italic;
+    text-transform: uppercase;
+    border-bottom: 0;
+}
+.side-nav-box-list .nav-item a {
+    color: #0931a5;
+}
+.side-nav-box-list .nav-item span {
+    margin-left: 10px;
+}
+
+
+
+/* 
+......................................................................................................................
+                                                right content box 
+......................................................................................................................
+*/
+.right-content {
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.right-content .right-content-box {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+   
+    padding: 15px;
+}
+
+
+/* 
+..............................................................................................................
+                                                    mid box 
+..............................................................................................................
+*/
+.mid-content .mid-content-box {
+    height: 3000px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10px;
+   
+}
+
+/* for scrollbar */
+
+.right-content .right-content-box::-webkit-scrollbar,
+.side-nav .side-nav-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.right-content .right-content-box::-webkit-scrollbar-track,
+.side-nav .side-nav-box::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
+
+.right-content .right-content-box::-webkit-scrollbar-thumb,
+.side-nav .side-nav-box::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #6a6a6ab5;
+}
+
+
