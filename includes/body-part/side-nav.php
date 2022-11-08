@@ -23,7 +23,7 @@
                 <div class="side-nav-box-menu-list">
                 <ul class="list-group list-group-flush side-nav-box-list ">
                     <li class="list-group-item nav-item active">
-                        <a href="#">
+                        <a href="./">
                             <i class="fa-solid fa-globe"></i>
                             <span>public</span>
                         </a>

@@ -20,10 +20,7 @@ img {
     height: auto;
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-}
+
 
 /* variable */
 :root {
@@ -32,7 +29,16 @@ body {
     --danger-clr-hover: rgb(121, 48, 3);
     --primary-clr: #042597;
     --primary-clr-hover: #061859;
+    --text-clr: #f1f1f1;
+    --text-sec: rgb(143 141 141);
+    --border-clr: #414244;
 
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background: #fff;
 }
 
 /**
@@ -211,7 +217,7 @@ body {
     padding: 10px;
     background-color: var(--body-clr);
     border-radius: 40px;
-
+    border: 1px solid var(--border-clr);
 }
 
 .create-post-box  .avatar {
@@ -228,12 +234,11 @@ body {
     padding: 15px 30px;
     border-radius: 30px;
     margin-left: 8px;
-    border: 1px solid #464646;
-    background: transparent;
+    background: #071544;
     color: #f1f1f1;
 }
 .create-post-box input:focus {
-    background-color: transparent;
+    background-color: #071544;;
 }
 
 
@@ -305,7 +310,10 @@ body {
 .create-post-model  .modal-body input {
     width: 100%;
     margin-left: 0;
-    color: #f1f1f1
+    color: var(--text-clr);
+    background: transparent;
+    border: 1px solid var(--border-clr);
+    
 }
 
 /* create post text area style*/
@@ -368,17 +376,74 @@ body {
 
 .post {
     width: 100%;
-    padding: 10px;
     background: var(--body-clr);
     margin: 10px 0px;
+    border-radius: 5px;
+    border: 1px solid var(--border-clr);
 }
 
 .post .post-title {
     display: flex;
     align-items: center;
     justify-content: start;
+    color: var(--text-clr);
+    padding: 20px;
+}
+.post .post-title .avatar {
+    height: 30px;
+    width: 30px;
+    border: none;
+    margin-right: 8px;
+}
+.post .post-title .name {
+    font-size: 18px;
+    color: var(--text-clr);
+    text-transform: capitalize;
+    font-weight: 600;
+    
 }
 
+.post .post-title .time {
+    color: var(--text-sec);
+    margin-left: 8px;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.post .post-text {
+    padding: 8px 20px;
+    color: var(--text-clr);
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+.post .post-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 20px;
+}
+.post .post-action > * {
+    cursor: pointer;
+}
+
+.post .post-action .react-action-box {
+    font-size: 30px;
+}
+
+
+.post .post-action .react-action-box .love {
+    color: red;
+}
+
+.post .post-action .react-action-box .bad {
+    color: var(--danger-clr)
+}
+
+.post .post-action .other-action-box {
+    color: var(--text-clr);
+}
 
 
 
