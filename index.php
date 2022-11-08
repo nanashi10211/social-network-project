@@ -14,27 +14,32 @@
 
 <!-- main body -->
 <div class="container-fluid">
+    <!-- content row start -->
     <div class="row">
        <!-- side nav -->
         <?php getSiderNav(); ?>
 
         <!-- main content -->
-        <div class="offset-3 col-md-7 mid-content">
+        <div class="offset-3 col-md-6 mid-content">
             <div class="mid-content-box">
-                <!-- create post form -->
-                <div class="create-post">
+               <!-- create post form system -->
+               <?php getCreatePostForm(); ?>
+               
+                <!-- all posts -->
+               <?php getRenderAllPosts(); ?>
 
-                </div>
             </div>
         </div>
 
-        <!-- right content -->
+        <!-- right content  start-->
         <div class="col-md-3 right-content">
             <div class="right-content-box">
               
             </div>
         </div>
+        <!-- right content end -->
     </div>
+    <!-- content row end -->
 </div>
 
 

@@ -169,24 +169,21 @@ class Model {
 
 
     /**
-     * ...............................
-     *  @return model name 
-     * ...............................
-     */
+    *...............................
+    *  @return model name 
+    *...............................
+    */
     public function getName() {
         return $this->name;
     }
 
 
     /**
-     * .............................
-     * @return model fields
-     * .............................
-     */
+    *.............................
+    * @return model fields
+    *.............................
+    */
     public function getFields() {
         return $this->fields;
     }
-
-  
-     
 }

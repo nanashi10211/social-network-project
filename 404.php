@@ -7,6 +7,6 @@
     <title>404</title>
 </head>
 <body>
-    <p> 404 page not found fron my folder </p>
+    <p> Opps!! 404 page not found!! </p>
 </body>
 </html>
