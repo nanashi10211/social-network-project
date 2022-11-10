@@ -5,47 +5,26 @@
     side nav menu 
 ....................................................................
 -->
-    <div class="col-md-3 side-nav">
+    <div class="col-md-2 side-nav">
             <div class="side-nav-box">
-                <!-- <ul class="list-group list-group-flush side-nav-box-list"> -->
-                         <!-- user profile list -->
-                        <div class="user-profile">
-                           
-                                <div class="avatar">
-                                    <img src="./public/images/default-avatar.png" />
-                                </div>
-                                <span>mr. afk</span>
-                           
-                        </div>
-                    <!-- </ul> -->
+                <!-- brand name -->
+                <div class="brand-name">
+                    <h1>Popcorn</h1>
+                </div>
 
-                <!----------------------- menu action list ------------------------->
-                <div class="side-nav-box-menu-list">
                 <ul class="list-group list-group-flush side-nav-box-list ">
-                    <li class="list-group-item nav-item active">
-                        <a href="./">
+                
+                    <!----------------------- menu action list ------------------------->
+                    <li class="list-group-item nav-item">
+                        <a href="./" class="active">
                             <i class="fa-solid fa-globe"></i>
-                            <span>public</span>
+                            <span>news feed</span>
                         </a>
                     </li>
                     <li class="list-group-item nav-item">
                         <a href="#">
                             <i class="fa-solid fa-user-group"></i>
                             <span>group</span>
-                        </a>
-                    </li>
-                  
-                    <li class="list-group-item nav-item">
-                        <a href="#">
-                            <i class="fa-solid fa-people-group"></i>
-                            <span>create group</span>
-                        </a>
-                    </li>
-                  
-                    <li class="list-group-item nav-item">
-                        <a href="#">
-                            <i class="fa-solid fa-user"></i>
-                            <span>profile</span>
                         </a>
                     </li>
 
@@ -55,12 +34,19 @@
                             <span>settings</span>
                         </a>
                     </li>
+                    <!-- user profile list -->
+                    <li class="list-group-item nav-item">
+                        <a href="#"  class="user-profile">
+                            <div class="avatar">
+                                <img src="./public/images/default-avatar.png" />
+                            </div>
+                            <span>profile</span>
 
-
+                        </a>
+                    </li>
+                
                 </ul>
-                <!-- placeholder -->
-                <div style="height: 100px"></div>
-                </div>
-                <!-- /\]/\/\/\/\/ -->
+                
+
             </div>
-        </div>
+    </div>

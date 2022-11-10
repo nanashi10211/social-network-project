@@ -20,7 +20,7 @@
         <?php getSiderNav(); ?>
 
         <!-- main content -->
-        <div class="offset-3 col-md-6 mid-content">
+        <div class="offset-3 col-md-5 mid-content">
             <div class="mid-content-box">
                <!-- create post form system -->
                <?php getCreatePostForm(); ?>
