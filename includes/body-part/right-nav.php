@@ -20,10 +20,46 @@
                 <span>my messages</span>
                
             </li>
-            <li class="list-group-item right-nav-item">A second item</li>
-            <li class="list-group-item right-nav-item">A third item</li>
-            <li class="list-group-item right-nav-item">A fourth item</li>
-            <li class="list-group-item right-nav-item">And a fifth one</li>
+            <!-- single message -->
+            <li class="list-group-item right-nav-item">
+                <a href="#">
+                    <div class="profile-container">
+
+                        <div class="avatar">
+                            <img src="./public/images/default-avatar.png" alt="image">
+                        </div>
+                    </div>
+
+                    <div class="msg-preview">
+                        <span class="name">username</span>
+                        <span class="msg">
+                            Lorem ipsum dolor....
+                        </span>
+                       
+                    </div>
+                </a>
+            </li>
+
+            <!-- single message -->
+            <li class="list-group-item right-nav-item">
+                <a href="#">
+                    <div class="profile-container">
+
+                        <div class="avatar">
+                            <img src="./public/images/default-avatar.png" alt="image">
+                        </div>
+                    </div>
+
+                    <div class="msg-preview">
+                        <span class="name">username</span>
+                        <span class="msg">
+                            Lorem ipsum dolor....
+                        </span>
+                        
+                    </div>
+                </a>
+            </li>
+           
         </ul>
     </div>
 </div>

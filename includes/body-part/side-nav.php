@@ -1,5 +1,14 @@
     
+    <?php  
     
+    $messangerPattern = "/messanger/i";
+    $indexPattern = "/index/i";
+    $profilePattern = "/profile/i";
+    $messanger = preg_match_all($messangerPattern, $_SERVER['PHP_SELF']);
+    $index = preg_match_all($indexPattern, $_SERVER['PHP_SELF']);
+    $profile = preg_match_all($profilePattern, $_SERVER['PHP_SELF']);
+    
+    ?>
 <!-- 
 ....................................................................        
     side nav menu 
@@ -16,32 +25,34 @@
                 
                     <!----------------------- menu action list ------------------------->
                     <li class="list-group-item nav-item">
-                        <a href="./" class="active">
+                        <a href="./" class="<?php if($index > 0) echo "active" ?>">
                             <i class="fa-solid fa-globe"></i>
                             <span>news feed</span>
                         </a>
                     </li>
-                    <li class="list-group-item nav-item">
-                        <a href="#">
-                            <i class="fa-solid fa-user-group"></i>
-                            <span>groups</span>
-                        </a>
-                    </li>
+                  
 
-                    <!-- <li class="list-group-item nav-item">
-                        <a href="#">
-                            <i class="fa-solid fa-location-arrow"></i>
+                    <li class="list-group-item nav-item">
+                        <a href="messanger" class="<?php if($messanger > 0) echo "active" ?>" >
+                            <i class="fa-solid fa-paper-plane"></i>
                             <span>messages</span>
                         </a>
-                    </li> -->
-                    <!-- user profile list -->
+                    </li>
+                    <!-- user profile -->
                     <li class="list-group-item nav-item">
-                        <a href="#"  class="user-profile">
+                        <a href="profile"  class="user-profile <?php if($profile > 0) echo "active" ?>">
                             <div class="avatar">
                                 <img src="./public/images/default-avatar.png" />
                             </div>
                             <span>profile</span>
 
+                        </a>
+                    </li>
+
+                    <li class="list-group-item nav-item">
+                        <a href="#">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span>logout</span>
                         </a>
                     </li>
                 
