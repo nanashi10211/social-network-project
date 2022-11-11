@@ -32,11 +32,7 @@
         </div>
 
         <!-- right content  start-->
-        <div class="col-md-3 right-content">
-            <div class="right-content-box">
-              
-            </div>
-        </div>
+        <?php getRightNav(); ?>
         <!-- right content end -->
     </div>
     <!-- content row end -->

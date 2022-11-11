@@ -24,16 +24,16 @@
                     <li class="list-group-item nav-item">
                         <a href="#">
                             <i class="fa-solid fa-user-group"></i>
-                            <span>group</span>
+                            <span>groups</span>
                         </a>
                     </li>
 
-                    <li class="list-group-item nav-item">
+                    <!-- <li class="list-group-item nav-item">
                         <a href="#">
-                            <i class="fa-solid fa-sliders"></i>
-                            <span>settings</span>
+                            <i class="fa-solid fa-location-arrow"></i>
+                            <span>messages</span>
                         </a>
-                    </li>
+                    </li> -->
                     <!-- user profile list -->
                     <li class="list-group-item nav-item">
                         <a href="#"  class="user-profile">

@@ -27,14 +27,16 @@ img {
     --body-clr: #fff;
     --danger-clr: rgb(255, 98, 0);
     --danger-clr-hover: rgb(121, 48, 3);
-    --primary-clr: #042597;
-    --primary-clr-hover: #061859;
+    --primary-clr: #967cff;
+    --primary-clr-hover: #7250fa;
     --text-clr: #666;
     --text-sec: rgb(143 141 141);
     --nav-link-clr: #606060;
     --nav-link-clr-active: #222222;
     --link-weight: 400;
     --border-clr: #ebe5e5;
+    --link-clr: rgb(0, 115, 255);
+    --secondary-clr: #999;
 
 }
 
@@ -187,6 +189,55 @@ body {
     padding: 15px;
     background-color: var(--body-clr);
 }
+.right-content .right-content-box .profile-link  {
+    width:  100%;
+}
+
+.right-content .right-content-box .profile-link .user-profile {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.right-content .right-content-box .profile-link .user-profile .avatar {
+   border: 1px solid var(--primary-clr);
+}
+.right-content .right-content-box .profile-link .info {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 20px;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.right-content .right-content-box .profile-link .info .username {
+    color: var(--nav-link-clr-active);
+    text-transform: capitalize;
+}
+.right-content .right-content-box .profile-link .info .designation {
+    color: var(--nav-link-clr);
+}
+/* mehu list */
+.right-content .right-content-box .right-nav {
+   margin-top: 15px;
+}
+.right-content .right-content-box .right-nav .right-nav-item {
+    border: 0;
+}
+/* menu header style */
+.right-content .right-content-box .right-nav .header {
+    font-size: 15px;
+    color: var(--secondary-clr);
+    text-transform: uppercase;
+    font-weight: 500;
+    border: 0;
+}
+/* menu list style */
+
+.right-content .right-content-box .right-nav .right-nav-item {
+    
+}
 
 
 /* 
@@ -257,10 +308,7 @@ body {
     background-color: #ededed;
 }
 
-::placeholder {
-    text-transform: capitalize;
 
-}
 
 /* ================= create post model styles ======================== */
 
@@ -337,7 +385,7 @@ body {
     border-radius: 30px;
     border: 1px solid #464646;
     background: transparent;
-    color: #f1f1f1;
+    color: var(--text-clr);
     line-height: 1.4;
   
 }
@@ -355,7 +403,7 @@ body {
 .create-post-model .modal-body .post-file-input-box label {
     display: flex;
     align-items: center;
-    color: #bbbbbb;
+    color: var(--text-clr);
     padding: 10px;
     text-transform: capitalize;
     font-size: 18px;
@@ -364,7 +412,7 @@ body {
 .create-post-model .modal-body .post-file-input-box label svg {
     font-size: 30px;
     margin-right: 10px;
-    color: #c8cfd5;
+    color: var(--text-clr);
 
 }
 
@@ -372,13 +420,6 @@ body {
     display: none;
 }
 
-.create-post-model .modal-body .post-file-input-box h4 {
-    color: #a1a1a1;
-    margin-top: 20px;
-    font-size: 15px;
-    border-bottom: 1px solid #5a5a5a;
-    text-transform: capitalize;
-}
 
 
 /*
@@ -390,7 +431,7 @@ body {
 .post {
     width: 100%;
     background: var(--body-clr);
-    margin: 10px 0px;
+    margin: 20px 0px;
     border-radius: 5px;
     border: 1px solid var(--border-clr);
 }
@@ -403,61 +444,160 @@ body {
     padding: 20px;
 }
 .post .post-title .avatar {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     border: none;
-    margin-right: 8px;
+    margin-right: 10px;
 }
 .post .post-title .name {
     font-size: 18px;
-    color: var(--text-clr);
-    text-transform: capitalize;
+    color: var(--nav-link-clr-active);
+    text-transform: lowercase;
     font-weight: 600;
     
 }
 
-.post .post-title .time {
-    color: var(--text-sec);
-    margin-left: 8px;
-    font-size: 12px;
-    font-style: italic;
+/* ==== post image ======= */
+.post .post-image {
+    height: auto;
+    width: 100%;
 }
 
-.post .post-text {
-    padding: 8px 20px;
-    color: var(--text-clr);
-    font-size: 18px;
-    line-height: 1.4;
-    font-weight: 400;
+.post .post-image a  {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
+.post .post-image a img {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+
+/* ====== post action ======== */
 .post .post-action {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 5px 20px;
 }
-.post .post-action > * {
-    cursor: pointer;
-}
 
 .post .post-action .react-action-box {
     font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+}
+
+.react-counter {
+    font-size: 15px;
+    margin-left: 10px;
+    text-transform: capitalize;
+    color: var(--nav-link-clr-active);
+    font-weight: 500;
 }
 
 
 .post .post-action .react-action-box .love {
+    color: var(--nav-link-clr);
+}
+
+.post .post-action .love {
+    cursor: pointer;
+}
+
+
+.love.react svg {
     color: red;
+   
 }
 
-.post .post-action .react-action-box .bad {
-    color: var(--danger-clr)
-}
-
-.post .post-action .other-action-box {
+/* ====== post text ===== */
+.post .post-text {
+    padding: 8px 20px;
     color: var(--text-clr);
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 400;
 }
 
+.post .post-text .comment-show {
+    cursor: pointer;
+    color: var(--link-clr);
+    display: block;
+    text-transform: capitalize;
+}
+/* ==== comment form */
+.post .comment-box {
+    width: 100%;
+    padding: 5px 15px;
+    border-top: 1px solid var(--border-clr);
+}
+.post .comment-box form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+
+.post .comment-box form textarea {
+    flex: 11;
+    border: 0;
+    outline: 0;
+    padding: 10px;
+    margin-right: 10%;
+    overflow: auto;
+    resize: none;
+}
+.post .comment-box form button {
+    flex: 1;
+    
+    border: none;
+    outline: none;
+    background-color: var(--primary-clr);
+    color: white;
+    padding: 8px 15px;
+    font-weight: 500;
+    border-radius: 10px;
+}
+.post .comment-box form button:hover {
+    background-color: var(--primary-clr-hover);
+}
+
+/* comment list style */
+
+.comment-list {
+    border: 0;
+    border-top: 1px solid var(--border-clr);
+}
+.comment-list .comment {
+    width: 100%;
+    background-color: rgb(239 243 246);
+    padding: 8px;
+    margin: 5px 0px;
+    border-radius: 10px;
+}
+.comment-list .comment .profile-link {
+    display: inline-flex;
+    align-items: start;
+    justify-content: start;
+    margin-right: 2px;
+}
+
+.comment-list .comment .profile-link .avatar {
+    height: 30px;
+    width: 30px;
+    margin-right: 8px;
+}
+.comment-text {
+    display: inline-flex;
+}
 
 
 

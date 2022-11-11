@@ -27,3 +27,8 @@ function getCreatePostForm() {
 function getRenderAllPosts() {
     include_once("./includes/body-part/posts.php");
 }
+
+// get right nav
+function getRightNav() {
+    include_once("./includes/body-part/right-nav.php");
+}

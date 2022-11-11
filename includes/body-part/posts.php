@@ -7,26 +7,78 @@
             <a href="#" class="avatar">
                 <img src="./public/images/start.jpg" alt="" />
             </a>
-            <span class="name">post title</span>
-            <span class="time">10,11,2022</span>
+            <span class="name">user_name</span>
+           
         </div>
         <!-- in post image will show post image ,if any -->
         <div class="post-image">
               <a href="./public/images/start.jpg" target="_blank">  <img src="./public/images/start.jpg" alt="" /> </a>
         </div>
-        <!-- show post text -->
-        <div class="post-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quos ad ex, vel assumenda nesciunt aspernatur molestias labore quaerat, possimus aperiam corrupti eius facere sapiente cupiditate obcaecati ea recusandae ducimus sequi magni molestiae voluptatibus perferendis consectetur! Exercitationem at laborum accusantium deleniti in fugit eligendi consequuntur voluptate, ipsa soluta placeat porro earum nesciunt eveniet praesentium cumque sunt illum provident quos doloribus sint, suscipit nam. Ab, asperiores quidem voluptate totam, vitae nemo nesciunt optio, id quas nisi distinctio numquam dicta illo natus? Delectus nobis, assumenda totam sed adipisci pariatur placeat ex repellendus eligendi quas nemo consectetur nihil ipsam sit illo quo incidunt.
-        </div>
         <!-- show post action -->
         <div class="post-action">
             <div class="react-action-box">
-                <span class="love"><i class="fa-solid fa-heart"></i></span>
-                <span class="bad"><i class="fa-solid fa-hand-lizard"></i></span>
-            </div>
-            <div class="other-action-box">
-                <span><i class="fa-solid fa-share-from-square"></i>share</span>
+                <span class="love react"><i class="fa-solid fa-heart"></i></span>
+                <!-- <span class="love"><i class="fa-regular fa-heart"></i></span> -->
+                <span class="react-counter">231243 likes</span>
+            </div>         
+        </div>
+
+        <!-- show post text -->
+        <div class="post-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quos ad ex, vel assumenda nesciunt aspernatur molestias labore quaerat,
+
+                <span class="comment-show" onclick="document.querySelector('.comment-show').style.display = 'none'" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" >view 123 comments</span>
+        </div>
+
+        <!-- all comments -->
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body comment-list">
+               <!-- all comment should load here -->
+               <!-- single comment -->
+               <div class="comment">
+                    <!-- comment user avatar -->
+                    <a href="#" class="profile-link">
+                        <div class="avatar">
+                            <img src="./public/images/default-avatar.png" alt=""/>
+                        </div>
+                        <span>user name</span>
+                    </a>
+                    <!-- comment text -->
+                    <div class="comment-text">
+                        Lorem ipsum dolor sit amet 
+                        Lorem ipsum dolor sit amet 
+                    </div>
+               </div>
+
+                <!-- single comment -->
+                <div class="comment">
+                    <!-- comment user avatar -->
+                    <a href="#" class="profile-link">
+                        <div class="avatar">
+                            <img src="./public/images/default-avatar.png" alt=""/>
+                        </div>
+                        <span>user name</span>
+                    </a>
+                    <!-- comment text -->
+                    <div class="comment-text">
+                        Lorem ipsum dolor sit amet 
+                        Lorem ipsum dolor sit amet 
+                    </div>
+               </div>
+
+
+
             </div>
         </div>
+        <!-- comment box -->
+        <div class="comment-box">
+            <form method="post">
+                <textarea name="comment" placeholder="Add a comment...." rows="1" ></textarea>
+                <button type="submit">Post</button>
+            </form>
+        </div>
+
+
+      
     </div>
 </div>

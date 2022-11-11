@@ -6,7 +6,7 @@
                 <div class="avatar">
                     <img src="./public/images/default-avatar.png" alt=""  />
                 </div>
-                <input id="create-post" readonly  placeholder="create post" data-bs-toggle="modal" data-bs-target="#staticBackdrop" />
+                <input id="create-post" readonly  placeholder="Create Post" data-bs-toggle="modal" data-bs-target="#staticBackdrop" />
                 <!-- create post model -->
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -39,7 +39,7 @@
                                         
                                                 <label for="post_file"> 
                                                     <i class="fa-solid fa-camera"></i>
-                                                    add media file
+                                                    add image
                                                 </label>
                                                 <input type="file" name="file" id="post_file" onchange="onfileChange()" />
                                             </div>
@@ -62,7 +62,7 @@
                                 <!-- create post model action -->
                                 <div class="modal-footer">
                                     <button type="button" class="cmn-btn cancel-btn" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="cmn-btn create-btn">Create</button>
+                                    <button type="submit" class="cmn-btn create-btn">Post</button>
                                 </div>
                             </div>
                             <!-- create post content end -->
