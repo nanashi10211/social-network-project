@@ -8,7 +8,7 @@
     include_once("./functions/views.php");
 
 ?>
-<!-- '''''''''''''''''''''''''''''''''''index page''''''''''''''''''''''''''''''''''''' -->
+<!-- '''''''''''''''''''''''''''''''''''login page''''''''''''''''''''''''''''''''''''' -->
 
 <!-- page header -->
 <?php getHeader(); ?>
@@ -17,9 +17,7 @@
 <div class="container-fluid">
     <!-- content row start -->
     <div class="row">
-       <!-- side nav -->
-        <?php getSiderNav(); ?>
-
+     
         <!-- main content -->
         <div class="offset-3 col-md-5 mid-content">
             <div class="mid-content-box">
@@ -32,9 +30,7 @@
             </div>
         </div>
 
-        <!-- right content  start-->
-        <?php getRightNav(); ?>
-        <!-- right content end -->
+     
     </div>
     <!-- content row end -->
 </div>
