@@ -1,3 +1,4 @@
+<!-- '''''''''''''''''''''''''''''''''''login page''''''''''''''''''''''''''''''''''''' -->
 <?php
     ini_set('display_errors', '1');
     error_reporting(E_ALL);
@@ -8,7 +9,6 @@
     include_once("./functions/views.php");
 
 ?>
-<!-- '''''''''''''''''''''''''''''''''''login page''''''''''''''''''''''''''''''''''''' -->
 
 <!-- page header -->
 <?php getHeader(); ?>
@@ -37,7 +37,7 @@
                         <div class="form-field">
                             <!-- <label class="label"  for="username">username:</label> -->
                             <div class="input-box">
-                                <input type="text" name="username" id="username">
+                                <input type="text" name="username" required id="username" placeholder="Enter your email or username">
                                 <p class="help-text">
                                     Enter a username or email
                                 </p>
@@ -51,7 +51,7 @@
                          <div class="form-field">
                             <!-- <label class="label"  for="password">Password:</label> -->
                             <div class="input-box">
-                                <input type="text" name="password" id="password">
+                                <input type="password" name="password" required id="password" placeholder="Enter your password">
                                 <p class="help-text">
                                     Enter your password
                                 </p>
@@ -64,6 +64,7 @@
                             <div class="input-box">
                                 <button class="form-btn" type="submit">login</button>
                             </div>
+
 
                         </div>
                         <!-- single field end -->

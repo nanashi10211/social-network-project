@@ -11,8 +11,9 @@ $user = new User($conn);
 
 $user->create("Users", [
     "id" => "int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY",
-    "firstname" => "varchar(255) NOT NULL",
-    "lastname" => "varchar(255) NOT NULL",
-    "friends" => "text",
+    "name" => "varchar(255) NOT NULL",
+    "username" => "varchar(255) NOT NULL",
+    "password" => "varchar(255) NOT NULL",
+    "friends" => "JSON",
     "avatar" => "varchar(255)",
 ]);

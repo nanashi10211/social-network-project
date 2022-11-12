@@ -3,6 +3,11 @@
     error_reporting(E_ALL);
    
     include_once("./functions/views.php");
+    
+    include_once("./functions/utils.php");
+    // redirect to register page if user not login
+    indexRedirect();
+
    
 ?>
 <!-- '''''''''''''''''''''''''''''''''''profile page''''''''''''''''''''''''''''''''''''' -->
