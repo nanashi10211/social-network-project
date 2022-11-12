@@ -37,6 +37,8 @@ img {
     --border-clr: #ebe5e5;
     --link-clr: rgb(0, 115, 255);
     --secondary-clr: #999;
+    --primary-text-clr: rgb(19 226 249);
+    --primary-text-clr-hover: rgb(11, 150, 165);
 
 }
 
@@ -904,3 +906,153 @@ body {
 .image-change input {
     display: none;
 }
+
+
+/*
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                                                register page styles
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+*/
+.form-page-container {
+    width: 100%;
+    border: 1px solid var(--border-clr);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    
+}
+.form-page-container .side-content-box {
+    flex: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-clr-hover);
+    color: var(--body-clr);
+    flex-direction: column;
+}
+
+.form-page-container .side-content-box h1 {
+    font-size: 40px;
+}
+
+.form-page-container .side-content-box h1 span {
+    font-size: 70px;
+    font-style: italic;
+}
+
+.form-page-container .side-content-box p {
+    font-size: 18px;
+}
+
+.form-page-container .side-content-box p a {
+    color: var(--primary-text-clr);
+}
+.form-page-container .side-content-box p a:hover {
+    color: var(--primary-text-clr-hover);
+}
+
+.form-page-container .side-content-box img {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover;
+}
+
+.form-page-container form {
+    flex: 7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: var(--body-clr);
+}
+
+.form-page-container form .form-header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    padding: 20px 0px;
+    /* border-bottom: 1px solid var(--border-clr); */
+   
+}
+
+.form-page-container form .form-field {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 10px 20px;
+}
+.form-page-container form .form-field .input-box  {
+    flex: 9;
+    margin-right: 30px;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+
+}
+
+.form-page-container form .form-field .input-box input
+ {
+    width: 100%;
+    border: 1px solid var(--border-clr);
+    padding: 10px 8px;
+    outline: none;
+    border-radius: 5px;
+    transition: 0.2s;
+   
+}
+.form-page-container form .form-field .input-box input:focus {
+    border: 1px solid var(--nav-link-clr-active);
+}
+
+.form-page-container form .form-field .label {
+    flex: 3;
+    display: flex;
+    justify-content: flex-end;
+    align-items: start;
+    margin-right: 20px;
+    font-size: 15px;
+}
+.form-page-container form .form-field .input-box  .help-text {
+    font-size: 12px;
+    color: var(--secondary-clr);
+    margin: 0;
+}
+.form-btn {
+    outline: 0;
+    border: 1px solid var(--border-clr);
+    padding: 10px 20px;
+    transition: 0.2s;
+    border-radius: 20px;
+}
+.form-btn:hover {
+    background-color: var(--secondary-clr);
+    color: var(--body-clr);
+}
+/* 
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                                                        login page style
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+*/
+
+.login-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+.login-box .side-content-box {
+    height: 100%;
+}
+.login-box form .form-field {
+   padding: 10px 150px;
+}
+
+.login-box form .form-field .input-box {
+    margin: 0;
+    
+}
+
+
