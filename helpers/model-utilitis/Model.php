@@ -80,7 +80,10 @@ class Model {
          */
         if(!mysqli_query($this->conn, $sql)) {
             echo "Error:".$sql."<br>".mysqli_error($this->conn);
-        } 
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**
@@ -109,6 +112,9 @@ class Model {
         // update database recored
         if(!mysqli_query($this->conn, $sql)) {
             echo "Error: ".$sql."<br>".mysqli_error($this->conn);
+            return false;
+        } else {
+            return true;
         }
     }
 
@@ -131,12 +137,12 @@ class Model {
     /**
      * ..............................
      * @get model data
-     * Ex: find(["PersonID", "FirstName"])
-     * Ex2: find()
+     * Ex: select(["PersonID", "FirstName"])
+     * Ex2: select()
      * ..............................
      */
 
-     public function find($object = Array()) {
+     public function select($object = Array()) {
         $sql = "SELECT ";
         $cnt = count($object);
         if( $cnt > 0) {
@@ -166,6 +172,25 @@ class Model {
        }
        return $data;
      }
+    /**
+     * .................................................................
+     * find by field
+     * .................................................................
+     */
+    function find($condition) {
+        $sql ="SELECT * FROM ".$this->name;
+        $sql .= " WHERE ".$condition;
+
+        $data = Array();
+        // fetch data
+        $res = mysqli_query($this->conn, $sql);
+        if (mysqli_num_rows($res) > 0) {
+            while($row = mysqli_fetch_assoc($res)) {
+               array_push($data, $row);
+            }
+       }
+       return $data;
+    }
 
 
     /**

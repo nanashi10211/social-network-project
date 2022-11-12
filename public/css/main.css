@@ -960,6 +960,7 @@ body {
     object-fit: cover;
 }
 
+.form-page-container .success-box,
 .form-page-container form {
     flex: 7;
     display: flex;
@@ -1006,6 +1007,9 @@ body {
     transition: 0.2s;
    
 }
+.form-page-container form .form-field .input-box input.input-error {
+    border-color: red;
+}
 .form-page-container form .form-field .input-box input:focus {
     border: 1px solid var(--nav-link-clr-active);
 }
@@ -1022,6 +1026,10 @@ body {
     font-size: 12px;
     color: var(--secondary-clr);
     margin: 0;
+}
+
+.form-page-container form .form-field .input-box  .help-text.error {
+    color: red;
 }
 .form-btn {
     outline: 0;

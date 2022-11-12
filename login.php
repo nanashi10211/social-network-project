@@ -2,16 +2,51 @@
 
 <?php 
     include_once("./functions/utils.php");
-
     // redirect if login
     loginRegisterRedirect();
 
+?>
+<?php
+    // login user var
+    $username = "";
+    $password = "";
+    $error = false;
+
+
+    // check if form submitted
+    if(isset($_POST['submit'])) {
+        if(isset($_POST['username'])) {
+            $username = $_POST['username'];
+        }
+        if(isset($_POST['password'])) {
+            $username = $_POST['password'];
+            
+        }
+
+        if(strlen($username) > 0 && strlen($password) > 0) {
+            $res = $user->find("username='$username' OR email='$username'");
+            if(count($res) < 0) {
+                $error = true;
+            } else {
+                if(verify_password($password, $res[0]['password'])) {
+                    // @TODO login user session will start here
+                    
+                } else {
+                    $error = true;
+                }
+            }
+        }
+
+    }
+    
 ?>
 
 
 <?php
     include_once("./functions/views.php");
 ?>
+
+
 
 <!-- page header -->
 <?php getHeader(); ?>
@@ -65,7 +100,7 @@
                         <div class="form-field">
                            
                             <div class="input-box">
-                                <button class="form-btn" type="submit">login</button>
+                                <input class="form-btn" name="submit" type="submit" value="Login" />
                             </div>
 
 
