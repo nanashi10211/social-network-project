@@ -1,14 +1,12 @@
-<?php
-    ini_set('display_errors', '1');
-    error_reporting(E_ALL);
-   
-    include_once("./functions/views.php");
-    
-    include_once("./functions/utils.php");
-    // redirect to register page if user not login
-    indexRedirect();
+<?php 
+include_once("./functions/utils.php");
+// show 404 if not login
+notLogin404();
+?>
 
-   
+
+<?php
+    include_once("./functions/views.php");
 ?>
 <!-- '''''''''''''''''''''''''''''''''''profile page''''''''''''''''''''''''''''''''''''' -->
 

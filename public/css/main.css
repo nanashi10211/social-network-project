@@ -940,7 +940,7 @@ body {
 
 .form-page-container .side-content-box h1 span {
     font-size: 70px;
-    font-style: italic;
+    font-weight: 700;
 }
 
 .form-page-container .side-content-box p {
@@ -1057,5 +1057,3 @@ body {
     margin: 0;
     
 }
-
-

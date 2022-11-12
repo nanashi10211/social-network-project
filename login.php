@@ -1,13 +1,16 @@
 <!-- '''''''''''''''''''''''''''''''''''login page''''''''''''''''''''''''''''''''''''' -->
-<?php
-    ini_set('display_errors', '1');
-    error_reporting(E_ALL);
-    // models
-    include_once("./models/User.php");
-    include_once("./models/Message.php");
-    include_once("./models/Session.php");
-    include_once("./functions/views.php");
 
+<?php 
+    include_once("./functions/utils.php");
+
+    // redirect if login
+    loginRegisterRedirect();
+
+?>
+
+
+<?php
+    include_once("./functions/views.php");
 ?>
 
 <!-- page header -->
@@ -27,7 +30,7 @@
                     <!-- side content box -->
                     <div class="side-content-box">
                         <!-- <img src="./public/images/start.jpg" alt="image"> -->
-                        <h1>Welcome to <br> <span> POPCORN </span></h1>
+                        <h1>Welcome to <br><span>POPCORN</span></h1>
                         <p>Register <a href="register">here</a>  if you don't have an account</p>
                     </div>
                        <!-- register form -->
@@ -39,7 +42,7 @@
                             <div class="input-box">
                                 <input type="text" name="username" required id="username" placeholder="Enter your email or username">
                                 <p class="help-text">
-                                    Enter a username or email
+                                   
                                 </p>
                             </div>
 
@@ -53,7 +56,7 @@
                             <div class="input-box">
                                 <input type="password" name="password" required id="password" placeholder="Enter your password">
                                 <p class="help-text">
-                                    Enter your password
+                                   
                                 </p>
                             </div>
                         </div>

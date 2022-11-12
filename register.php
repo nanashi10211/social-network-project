@@ -1,17 +1,15 @@
 <!-- '''''''''''''''''''''''''''''''''''register page''''''''''''''''''''''''''''''''''''' -->
 
 <?php 
-    
+    include_once("./functions/utils.php");
+
+    // redirect if login
+    loginRegisterRedirect();
 
 ?>
 
 <?php
-    ini_set('display_errors', '1');
-    error_reporting(E_ALL);
-    // models
-    include_once("./models/User.php");
-    include_once("./models/Message.php");
-    include_once("./models/Session.php");
+   
     include_once("./functions/views.php");
 
 ?>
@@ -32,7 +30,7 @@
                     <!-- side content box -->
                     <div class="side-content-box">
                         <!-- <img src="./public/images/start.jpg" alt="image"> -->
-                        <h1>Welcome to <br> <span> POPCORN </span></h1>
+                        <h1>Welcome to <br><span>POPCORN</span></h1>
                         <p>Login <a href="login">here</a>  if you already have an account</p>
                     </div>
                        <!-- register form -->
