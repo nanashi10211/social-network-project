@@ -8,18 +8,19 @@
                     <img src="./public/images/default-avatar.png" />
                 </div>
                 <div class="info">
-                    <span class="username">username</span>
+                    <span class="username"><?php
+                        echo $_SESSION['name']
+                    ?></span>
                     <span class="designation">student</span>
                 </div>
             </a>
         </div>
         <ul class="list-group right-nav">
             <li class="list-group-item header disabled" aria-disabled="true">
-              
                 <i class="fa-solid fa-location-arrow"></i>
                 <span>my messages</span>
-               
             </li>
+            <!-- there will be message show here dynamically -->
             <!-- single message -->
             <li class="list-group-item right-nav-item">
                 <a href="#">

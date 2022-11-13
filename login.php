@@ -4,7 +4,7 @@
     include_once("./functions/utils.php");
     // redirect if login
     loginRegisterRedirect();
-
+   
 ?>
 <?php
     // login user var
@@ -12,33 +12,51 @@
     $password = "";
     $error = false;
 
-
     // check if form submitted
     if(isset($_POST['submit'])) {
         if(isset($_POST['username'])) {
             $username = $_POST['username'];
         }
         if(isset($_POST['password'])) {
-            $username = $_POST['password'];
+            $password = $_POST['password'];
         }
-
+      
         if(strlen($username) > 0 && strlen($password) > 0) {
-            $res = $user->find("username='$username' OR email='$username'");
-            if(count($res) < 0) {
+            $req_user = $user->find("username='$username' OR email='$username'");
+            // print_r($req_user);
+            if(count($req_user) < 0) {
                 $error = true;
             } else {
-                if(verify_password($password, $res[0]['password'])) {
+                if(verify_password($password, $req_user[0]['password'])) {
                     // @TODO login user session will start here
+                    $total_post = $post->find("user_id='".$req_user[0]['id']."'");
+
+
+                    $_SESSION['is_login'] = true;
+
+                    $_SESSION['name'] = $req_user[0]['name'];
+                    $_SESSION['username'] = $req_user[0]['username'];
+                    $_SESSION['email'] = $req_user[0]['email'];
+                    $_SESSION['avatar'] = $req_user[0]['avatar'];  
+                    $_SESSION['r'] = hash('sha256', $req_user['username']);
+                    $_SESSION['id'] = $req_user[0]['id'];
+                    $_SESSION['posts'] = $total_post;
+
+
+                    // redirect to news feed
+                    header("Location: ./");
 
                 } else {
+                    echo "password not match";
                     $error = true;
                 }
             }
         } else {
+            echo "error  print";
             $error = true;
         }
 
-    }
+    } 
     
 ?>
 
@@ -70,7 +88,7 @@
                         <p>Register <a href="register">here</a>  if you don't have an account</p>
                     </div>
                        <!-- register form -->
-                    <form action="#" method="post">
+                    <form action="login.php" method="post">
                         <h1 class="form-header">Login</h1>
                        <div class="form-field">
                         <div class="input-box">
@@ -108,15 +126,10 @@
                         </div>
                        
                         <!-- single field -->
-                        <div class="form-field">
-                           
+                        <div class="form-field">      
                             <div class="input-box">
                                 <input class="form-btn" name="submit" type="submit" value="Login" />
-                            
-                             
-                            </div>
-
-                          
+                            </div>     
                         </div>
                         <!-- single field end -->
                     </form>

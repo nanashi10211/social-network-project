@@ -4,6 +4,8 @@
                                     session configure
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 */
+// start session
+session_start(); 
 
 // error debug code
 ini_set('display_errors', '1');
@@ -15,19 +17,18 @@ include_once("./models/Message.php");
 include_once("./models/Session.php");
 include_once("./models/Post.php");
 
-// start session
-session_start(); 
+
 
 /*,,,,,,,,,,,,,, set all session variable ,,,,,,,,,,,,,,*/
 
-// for verify user session
-$_SESSION['is_login'] = false;
+// // for verify user session
+// $_SESSION['is_login'] = "no login";
 
 
-// login user credentials
-$_SESSION['name'] = '';
-$_SESSION['username'] = '';
-$_SESSION['email'] = '';
-$_SESSION['avatar'] = '';
+// // login user credentials
+// $_SESSION['name'] = '';
+// $_SESSION['username'] = '';
+// $_SESSION['email'] = '';
+// $_SESSION['avatar'] = '';
 
 

@@ -15,14 +15,14 @@ function indexRedirect() {
 
 // verify session and redirect from login and register page
 function loginRegisterRedirect() {
-    if($_SESSION['is_login']) {
+    if(isset($_SESSION['is_login']) && $_SESSION['is_login']) {
         return header("Location: ./");
     }
 }
 
 // if not login show 404 page
 function notLogin404() {
-    if(!$_SESSION['is_login']) {
+    if(!isset($_SESSION['is_login']) ) {
         include_once("404.php");
         die();
     }

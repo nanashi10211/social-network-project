@@ -42,7 +42,13 @@
                     <li class="list-group-item nav-item">
                         <a href="profile"  class="user-profile <?php if($profile > 0) echo "active" ?>">
                             <div class="avatar">
-                                <img src="./public/images/default-avatar.png" />
+                            <?php 
+                                if($_SESSION['avatar']) {
+                                    echo '<img src="'.$_SESSION['avatar'].'" alt="">';
+                                } else {
+                                    echo ' <img src="./public/images/default-avatar.png" alt="">';
+                                }
+                            ?>
                             </div>
                             <span>profile</span>
 
@@ -50,7 +56,8 @@
                     </li>
 
                     <li class="list-group-item nav-item">
-                        <a href="#">
+                       
+                        <a href="logout.php?r=<?php echo $_SESSION['r'] ?>">
                             <i class="fa-solid fa-right-from-bracket"></i>
                             <span>logout</span>
                         </a>
