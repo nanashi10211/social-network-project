@@ -40,6 +40,40 @@ notLogin404();
                         </div>
                         <div class="profile-ref-body">
                             <ul class="list-group">
+
+                            <?php 
+                            if(isset($_GET['ns'])) {
+                                $ns_u = $user->find("id=".trim($_GET['ns']));
+                                if(count($ns_u) > 0) {
+                            ?>
+                                <!-- single user msg -->
+                                <li class="list-group-item">
+                                    <a href="./messanger?s=<?php echo $ns_u[0]['id'] ?>">
+                                        <div class="avatar">
+                                        <?php 
+                                    if($ns_u[0]['avatar']) {
+                                        echo '<img src="'.$ns_u[0]['avatar'].'" alt="">';
+                                    } else {
+                                        echo ' <img src="./public/images/default-avatar.png" alt="">';
+                                    }
+                                        ?>
+                                        </div>
+                                        <div class="msg-preview">
+                                            <span class="name">
+                                               <?php echo  $ns_u[0]['name'] ?>
+                                            </span>
+                                           
+                                        </div>
+                                    </a>
+                                </li>
+                            <?php
+                                } else {
+                                    
+                                    header("Location: ./404.php");
+                                }
+                            }
+
+                            ?>
                         <?php
                             $rev_messages = $message->findAllByCondition("WHERE reciver_id=".$_SESSION['id']);
                             $pushed = Array();
@@ -97,7 +131,9 @@ notLogin404();
 
                         <?php 
                         if(isset($_GET['s'])) {    
-                            $sender = $user->find("id=".$_GET['s']);                    
+                            $sender = $user->find("id=".$_GET['s']);    
+                            $query = "WHERE sender_id=".$sender[0]['id']." AND reciver_id=".$_SESSION['id']." OR "."sender_id=".$_SESSION['id']." AND "."reciver_id=".$sender[0]['id'];
+                            $s_r_m = $message->findAllByCondition($query);                
                         ?>
                         <div class="messanger-header">
                             <div class="avatar">
@@ -111,12 +147,11 @@ notLogin404();
                             </div>
                             <span><?php echo $sender[0]['name'] ?></span>
                         </div>
-                        <div class="messanger-ref-body">
-                            <div class="messages">
+                        <div class="messanger-ref-body" id="messages">
+                            <div class="messages" id="msg-content">
                                 <!-- list of messages will show here -->
                                 <?php
-                                $query = "WHERE sender_id=".$sender[0]['id']." AND reciver_id=".$_SESSION['id']." OR "."sender_id=".$_SESSION['id']." AND "."reciver_id=".$sender[0]['id'];
-                                $s_r_m = $message->findAllByCondition($query);
+                               
                                 foreach($s_r_m as $ms) {
                                 ?>
                                 <!-- recived message -->
@@ -142,7 +177,7 @@ notLogin404();
                                 </div> 
                                 <?php } else { ?>
                                 <!-- send message -->
-                                <div class="message send-message">
+                                <div class="message send-message" >
                                     <div class="message-content">
                                         <?php echo $ms['message_content'] ?>
                                     </div>
@@ -151,10 +186,62 @@ notLogin404();
                                 <?php  } ?>
                             </div>
                             <!-- send message form -->
-                            <form method="post" action="#" class="message-send-form" autocomplete="off">
-                                <input  placeholder="Write message..." />
+                            <form method="post" id="msg-form" class="message-send-form" autocomplete="off">
+                                <input type="hidden" name="sender" value="<?php echo $_SESSION['id']; ?>" />
+                                <input type="hidden" name="reciver" value="<?php echo $_GET['s']; ?>" />
+                                <input name="msg" placeholder="Write message..." />
                                 <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
                             </form>
+                            <!-- message send and recive via a ajax -->
+                            <script>
+                                let messageBox = document.getElementById('messages');
+                                const form = document.getElementById('msg-form');
+                                const sender_id = <?php echo $_GET['s']; ?>;
+                                const reciver_id = <?php echo $_SESSION['id']; ?>;
+                                const all_msg = JSON.stringify(<?php echo json_encode($s_r_m) ?>);
+                                setInterval(() => {
+                                    let xmlhttp = new XMLHttpRequest();
+
+                                    let data = "msg="+all_msg;
+                                    // console.log(data);
+                                    xmlhttp.open("POST", "./get-message.php?sender="+sender_id, true);
+                                    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+                                    xmlhttp.onload = () => {
+                                        let res = xmlhttp.responseText;
+                                        if(res === "not same") {
+                                            location.reload();
+                                        }
+                                    };
+                                    xmlhttp.send(data);
+                                }, 500);
+                                
+                                // sender new message
+                                form.addEventListener('submit', (e) => {
+                                    e.preventDefault();
+                                    const msg = e.target.msg.value;
+                                    const sender = e.target.sender.value;
+                                    const reciver = e.target.reciver.value;
+                                    const object = "sender="+sender+"&reciver="+reciver+"&msg="+msg;
+                                    
+                                   
+                                    let xmlhttp = new XMLHttpRequest();
+
+                                  
+                                    xmlhttp.open("POST", "send-message.php", true);
+
+                                    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                                    
+                                    xmlhttp.onload = () => {
+                                        // console.log(xmlhttp.responseText);
+                                        // location.reload();
+                                    };
+                                    xmlhttp.send(object);
+                                    
+                                    // clear msg field
+                                    e.target.msg.value = "";
+                                })
+                            </script>
                         </div>
                         <?php  } else { ?>
                             <div style="display: flex;align-items: center;justify-content: center; height: 100%; color: green;font-size: 30px">
@@ -171,7 +258,6 @@ notLogin404();
     </div>
     <!-- content row end -->
 </div>
-
 
 <!-- page footer -->
 <?php getFooter(); ?>

@@ -6,6 +6,8 @@ include_once("./config/session.php");
 // key
 $key = $config['secret_key'];
 
+
+
 // verify session and redirect 
 function indexRedirect() {
     if(!$_SESSION['is_login']) {

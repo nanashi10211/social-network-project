@@ -29,6 +29,6 @@ function getPostBox() {
 }
 
 // get right nav
-function getRightNav() {
+function getRightNav($user, $message) {
     include_once("./includes/body-part/right-nav.php");
 }

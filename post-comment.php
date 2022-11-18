@@ -3,11 +3,11 @@
 include_once("./functions/utils.php");
 
 
-$indexPattern = "/index/i";
-$profilePattern = "/profile/i";
+// $indexPattern = "/index/i";
+// $profilePattern = "/profile/i";
 
-$index = preg_match_all($indexPattern, $_GET['s']);
-$profile = preg_match_all($profilePattern, $_GET['s']);
+// $index = preg_match_all($indexPattern, $_GET['s']);
+// $profile = preg_match_all($profilePattern, $_GET['s']);
 
 
 
@@ -22,15 +22,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
             "comment_text" => $cmt
         ]);
         if($res) {
-        //    if($index) {
-        //     header("Location: ./");
-        
-        //    }
-        //    else {
-        //     header("Location: ./profile");
-
-        //    }
-            echo "<script>history.back()</script>";
+       
+            echo "comment post";
 
         } else {
             echo "comment post problem";

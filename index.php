@@ -36,6 +36,7 @@ indexRedirect();
                 $all_post = NULL;
               
                 $all_post = $post->select();
+                arsort($all_post);
                 foreach($all_post as $post) {
                     new_post($post, $user, $comment);
                 }
@@ -46,7 +47,7 @@ indexRedirect();
         </div>
 
         <!-- right content  start-->
-        <?php getRightNav(); ?>
+        <?php getRightNav($user, $message); ?>
         <!-- right content end -->
     </div>
     <!-- content row end -->

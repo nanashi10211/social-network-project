@@ -75,6 +75,7 @@ notLogin404();
                 $all_post = NULL;
               
                 $all_post = $post->findAllByCondition("WHERE user_id=".$_SESSION['id']);
+                arsort($all_post);
                 foreach($all_post as $post) {
                     new_post($post, $user, $comment);
                 }

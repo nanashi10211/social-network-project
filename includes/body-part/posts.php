@@ -52,23 +52,14 @@ function new_post($post, $user, $comment) {
                         <form method="POST" class="react-action-box" action="like-unlike.php?r=like&s=<?php echo $_SERVER['PHP_SELF']; ?>&id=<?php echo $post['id'] ?>">
                      <?php
                         echo '<button type="submit" class="love"><i class="fa-regular fa-heart"></i></button>';
-                    //    echo var_dump((int)$_SESSION['id']);
-                    //    echo var_dump($post_react[0]);
-                    //    $rt = array_search("?", $post_react);
-                    //    echo var_dump($rt);
-                    //     if($rt === (int)$rt) {
-                    //         echo "they are same";
-                    //     } else {
-                    //         echo "they are not same";
-                    //     }
+                   
                         ?>
                          <span class="react-counter"><?php
                             echo count($post_react);
                             ?> likes</span>
                         </form>   
                   <?php  }  ?>
-                <!-- <span class="love react"><i class="fa-solid fa-heart"></i></span> -->
-                <!-- <span class="love"><i class="fa-regular fa-heart"></i></span>    -->
+                
                   
         </div>
 
@@ -77,7 +68,6 @@ function new_post($post, $user, $comment) {
                 <?php
                 echo $post['post_text'];
                 ?>
-
                 <span class="comment-show" onclick="document.querySelector('.comment-show').style.display = 'none'" data-bs-toggle="collapse" href="<?php echo "#box".$post['id'] ?>" role="button" aria-expanded="false" aria-controls="<?php echo $post['id'] ?>" >
                 <?php
                     $all_comments = $comment->find('post_id='.$post['id']);
@@ -113,32 +103,47 @@ function new_post($post, $user, $comment) {
                 } 
                 ?>
 
-              
-
-             
-
-
             </div>
         </div>
         <!-- comment box -->
         <div class="comment-box">
-            <form method="post" action="./post-comment.php?id=<?php echo $post['id'] ?>&s=<?php echo $_SERVER['PHP_SELF']; ?>">
+            <form id="cmtbox-<?php echo $post['id'] ?>">
                 <textarea autocomplete="off" name="comment" id="cmt-<?php echo $post['id'] ?>"   placeholder="Add a comment...." rows="1"  ></textarea>
                 <button type="submit" >Post</button>
-               
             </form>
+            <script>
+            var form_<?php echo $post['id'] ?> = document.getElementById('cmtbox-<?php echo $post['id'] ?>');
+
+            form_<?php echo $post['id'] ?>.addEventListener("submit",(e) => {
+                e.preventDefault();
+                const object = "comment="+e.target.comment.value;
+                
+                console.log(object);
+                
+                                
+                let xmlhttp = new XMLHttpRequest();
+
+                
+                xmlhttp.open("POST", "./post-comment.php?id=<?php echo $post['id']; ?>", true);
+
+                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                
+                xmlhttp.onload = () => {
+                    // console.log(xmlhttp.responseText);
+                    location.reload();
+                };
+                xmlhttp.send(object);
+                // clear msg field
+                e.target.comment.value = "";
+            })
+
+
+                
+
+            </script>
         </div>
        
-        
-            <script>
-               
-
-               
-                   
-            
-            </script>
-        
-        
+ 
       
     </div>
 </div>
