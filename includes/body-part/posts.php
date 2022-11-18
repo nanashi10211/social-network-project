@@ -14,7 +14,7 @@ function new_post($post, $user, $comment) {
                 <?php 
                  $post_user = $user->find("id=".$post['user_id']);
                  if($post_user[0]['avatar']) {
-                    echo '<img src="'.$_SESSION['avatar'].'" alt="">';
+                    echo '<img src="'.$post_user[0]['avatar'].'" alt="">';
                 } else {
                     echo ' <img src="./public/images/default-avatar.png" alt="">';
                 }

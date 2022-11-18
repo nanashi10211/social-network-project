@@ -17,4 +17,5 @@ $user->create("Users", [
     "email" => "varchar(255) NOT NULL",
     "friends" => "JSON",
     "avatar" => "varchar(255)",
+    "designation" => "varchar(255)"
 ]);

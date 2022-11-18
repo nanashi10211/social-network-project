@@ -38,7 +38,7 @@ notLogin404();
                         </div>
                     </div>
                     <div class="profile-details">
-                        <h3><?php echo $_SESSION['name'] ?> <a href="edit-profile.php?r=somerandom_text&id=user_id">Edit profile</a> </h3>
+                        <h3><?php echo $_SESSION['name'] ?> <a href="edit-profile.php">Edit profile</a> </h3>
                         <span class="post-count">
                         <?php
                             echo count($_SESSION['posts']);
