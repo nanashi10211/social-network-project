@@ -47,7 +47,7 @@ notLogin404();
                                 if(count($ns_u) > 0) {
                             ?>
                                 <!-- single user msg -->
-                                <li class="list-group-item">
+                                <li class="list-group-item <?php if(isset($_GET['s'])) echo "current"?>">
                                     <a href="./messanger?s=<?php echo $ns_u[0]['id'] ?>">
                                         <div class="avatar">
                                         <?php 
@@ -75,13 +75,20 @@ notLogin404();
 
                             ?>
                         <?php
-                            $rev_messages = $message->findAllByCondition("WHERE reciver_id=".$_SESSION['id']);
+                            $query = "WHERE reciver_id=".$_SESSION['id']." OR sender_id=".$_SESSION['id'];
+                            $rev_messages = $message->findAllByCondition($query);
                             $pushed = Array();
                             foreach($rev_messages as $u) {
                                 $srch = array_search($u['sender_id'], $pushed);
-                                if($srch !== (int)$srch) {
+                                
+                                if($srch !== (int)$srch && $u['sender_id'] !== $_SESSION['id']) {
                                     array_push($pushed, $u['sender_id']);
                                 }
+                                $rch = array_search($u['reciver_id'], $pushed);
+                                if($rch !== (int)$rch && $u['reciver_id'] !== $_SESSION['id']) {
+                                    array_push($pushed, $u['reciver_id']);
+                                }
+                               
                             }
                            
                             foreach($pushed as $m) {
@@ -95,7 +102,7 @@ notLogin404();
                                 
                         ?>
                                 <!-- single user msg -->
-                                <li class="list-group-item">
+                                <li class="list-group-item <?php if(isset($_GET['s']) && $_GET['s'] ==$m) echo "current"?>">
                                     <a href="./messanger?s=<?php echo $m ?>">
                                         <div class="avatar">
                                         <?php 
@@ -111,8 +118,11 @@ notLogin404();
                                                <?php echo $m_user[0]['name'] ?>
                                             </span>
                                             <span class="msg">
-                                                <?php 
-                                                echo $m_last['message_content'];
+                                                <?php
+                                                if(isset($m_last['message_content'])) {
+
+                                                    echo $m_last['message_content'];
+                                                } 
                                                 ?>
                                             </span>
                                         </div>

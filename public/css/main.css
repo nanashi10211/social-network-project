@@ -723,6 +723,9 @@ body {
 .profile-ref .profile-ref-body .list-group .list-group-item a .msg-preview .msg {
     color: var(--nav-link-clr);
 }
+.profile-ref .profile-ref-body .list-group .list-group-item.current {
+    background: #dfdddd;
+}
 
 /* messanger body style */
 .messanger-ref {
@@ -890,7 +893,6 @@ body {
 .profile-edit-box {
     padding: 20px;
     border: 1px solid var(--border-clr);
-
 }
 
 .action-box {
