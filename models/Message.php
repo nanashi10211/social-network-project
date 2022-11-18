@@ -11,8 +11,8 @@ $message = new Message($conn);
 
 $message->create("Messages", [
     "id" => "int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY",
-    "sender_id" => "varchar(255) NOT NULL",
-    "reciver_id" => "varchar(255) NOT NULL",
+    "sender_id" => "int(6) NOT NULL",
+    "reciver_id" => "int(6) NOT NULL",
     "message_content" => "text",
     "image" => "varchar(255)",
 ]);

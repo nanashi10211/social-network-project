@@ -66,8 +66,22 @@ notLogin404();
                <!-- create post form system -->
             <!-- all post that belongs to current user -->
             <div class="current-user-post-only">
+                <!-- all posts -->
+                <?php getPostBox();  ?>
 
-                <?php getRenderAllPosts();  ?>
+                <?php
+               
+                // all posts for particular user
+                $all_post = NULL;
+              
+                $all_post = $post->findAllByCondition("WHERE user_id=".$_SESSION['id']);
+                foreach($all_post as $post) {
+                    new_post($post, $user, $comment);
+                }
+               
+               ?>
+
+
             </div>
          
                

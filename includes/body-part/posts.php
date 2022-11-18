@@ -1,3 +1,9 @@
+<?php
+
+
+function new_post($post, $user, $comment) {
+
+?>
 
 <!-- sigle post -->
 <div class="post">
@@ -7,78 +13,134 @@
             <a href="#" class="avatar">
                 <img src="./public/images/start.jpg" alt="" />
             </a>
-            <span class="name">user_name</span>
+            <span class="name">
+                <?php
+                    $post_user = $user->find("id=".$post['user_id']);
+                    echo $post_user[0]['name'];
+                    // print_r($post_user);
+                ?>
+            </span>
            
         </div>
         <!-- in post image will show post image ,if any -->
+        <?php if(isset($post['post_image'])) { ?>
         <div class="post-image">
-              <a href="./public/images/start.jpg" target="_blank">  <img src="./public/images/start.jpg" alt="" /> </a>
+            <a href="<?php echo $post['post_image'] ?>" target="_blank">
+              <img src="<?php echo $post['post_image'] ?>" alt="" />
+            </a>
         </div>
+        <?php } ?>
         <!-- show post action -->
         <div class="post-action">
-            <div class="react-action-box">
-                <span class="love react"><i class="fa-solid fa-heart"></i></span>
-                <!-- <span class="love"><i class="fa-regular fa-heart"></i></span> -->
-                <span class="react-counter">231243 likes</span>
-            </div>         
+           
+                <?php 
+                    $post_react = json_decode($post['post_reacts']);
+                    $f = array_search((int)$_SESSION['id'], $post_react);
+                    if($f === (int)$f) {
+                ?>
+                    <form method="POST" class="react-action-box" action="like-unlike.php?r=unlike&s=<?php echo $_SERVER['PHP_SELF']; ?>&id=<?php echo $post['id'] ?>">
+                    <?php
+                       echo '<button type="submit"  class="love react"><i class="fa-solid fa-heart"></i></button>';
+                    ?>
+                     <span class="react-counter"><?php
+                
+                            echo count($post_react);
+                        ?> likes</span>
+                    </form>      
+                     <?php } else { ?>
+                        
+                        <form method="POST" class="react-action-box" action="like-unlike.php?r=like&s=<?php echo $_SERVER['PHP_SELF']; ?>&id=<?php echo $post['id'] ?>">
+                     <?php
+                        echo '<button type="submit" class="love"><i class="fa-regular fa-heart"></i></button>';
+                    //    echo var_dump((int)$_SESSION['id']);
+                    //    echo var_dump($post_react[0]);
+                    //    $rt = array_search("?", $post_react);
+                    //    echo var_dump($rt);
+                    //     if($rt === (int)$rt) {
+                    //         echo "they are same";
+                    //     } else {
+                    //         echo "they are not same";
+                    //     }
+                        ?>
+                         <span class="react-counter"><?php
+                            echo count($post_react);
+                            ?> likes</span>
+                        </form>   
+                  <?php  }  ?>
+                <!-- <span class="love react"><i class="fa-solid fa-heart"></i></span> -->
+                <!-- <span class="love"><i class="fa-regular fa-heart"></i></span>    -->
+                  
         </div>
 
         <!-- show post text -->
         <div class="post-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quos ad ex, vel assumenda nesciunt aspernatur molestias labore quaerat,
+                <?php
+                echo $post['post_text'];
+                ?>
 
-                <span class="comment-show" onclick="document.querySelector('.comment-show').style.display = 'none'" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" >view 123 comments</span>
+                <span class="comment-show" onclick="document.querySelector('.comment-show').style.display = 'none'" data-bs-toggle="collapse" href="<?php echo "#box".$post['id'] ?>" role="button" aria-expanded="false" aria-controls="<?php echo $post['id'] ?>" >
+                <?php
+                    $all_comments = $comment->find('post_id='.$post['id']);
+                    echo count($all_comments);
+                ?> comments</span>
         </div>
 
         <!-- all comments -->
-        <div class="collapse" id="collapseExample">
+        <div class="collapse" id="box<?php echo $post['id'] ?>">
             <div class="card card-body comment-list">
                <!-- all comment should load here -->
-               <!-- single comment -->
-               <div class="comment">
-                    <!-- comment user avatar -->
-                    <a href="#" class="profile-link">
-                        <div class="avatar">
-                            <img src="./public/images/default-avatar.png" alt=""/>
-                        </div>
-                        <span>user name</span>
-                    </a>
-                    <!-- comment text -->
-                    <div class="comment-text">
-                        Lorem ipsum dolor sit amet 
-                        Lorem ipsum dolor sit amet 
-                    </div>
-               </div>
-
-                <!-- single comment -->
+                <?php
+                foreach($all_comments as $cmnt) {
+                    $cmnt_user = $user->find("id=".$cmnt['user_id']);
+                ?>
+                  <!-- single comment -->
                 <div class="comment">
-                    <!-- comment user avatar -->
-                    <a href="#" class="profile-link">
-                        <div class="avatar">
-                            <img src="./public/images/default-avatar.png" alt=""/>
+                        <!-- comment user avatar -->
+                        <a href="profile.php?id=<?php echo $cmnt['user_id'] ?>" class="profile-link">
+                            <div class="avatar">
+                                <img src="./public/images/default-avatar.png" alt=""/>
+                            </div>
+                            <span>
+                                <?php echo $cmnt_user[0]['name'] ?>
+                            </span>
+                        </a>
+                        <!-- comment text -->
+                        <div class="comment-text">
+                            <?php echo $cmnt['comment_text'] ?>
                         </div>
-                        <span>user name</span>
-                    </a>
-                    <!-- comment text -->
-                    <div class="comment-text">
-                        Lorem ipsum dolor sit amet 
-                        Lorem ipsum dolor sit amet 
-                    </div>
-               </div>
+                </div>
+                <?php
+                } 
+                ?>
 
+              
+
+             
 
 
             </div>
         </div>
         <!-- comment box -->
         <div class="comment-box">
-            <form method="post">
-                <textarea name="comment" placeholder="Add a comment...." rows="1" ></textarea>
-                <button type="submit">Post</button>
+            <form method="post" action="./post-comment.php?id=<?php echo $post['id'] ?>&s=<?php echo $_SERVER['PHP_SELF']; ?>">
+                <textarea autocomplete="off" name="comment" id="cmt-<?php echo $post['id'] ?>"   placeholder="Add a comment...." rows="1"  ></textarea>
+                <button type="submit" >Post</button>
+               
             </form>
         </div>
+       
+        
+            <script>
+               
 
-
+               
+                   
+            
+            </script>
+        
+        
       
     </div>
 </div>
+
+<?php } ?>

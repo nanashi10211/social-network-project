@@ -26,9 +26,21 @@ indexRedirect();
             <div class="mid-content-box">
                <!-- create post form system -->
                <?php getCreatePostForm(); ?>
-               
+
                 <!-- all posts -->
-               <?php getRenderAllPosts(); ?>
+               <?php getPostBox(); ?>
+
+               <?php
+               
+               // all posts
+                $all_post = NULL;
+              
+                $all_post = $post->select();
+                foreach($all_post as $post) {
+                    new_post($post, $user, $comment);
+                }
+               
+               ?>
 
             </div>
         </div>

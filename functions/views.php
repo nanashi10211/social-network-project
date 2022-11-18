@@ -24,7 +24,7 @@ function getCreatePostForm() {
 
 
 // render all posts
-function getRenderAllPosts() {
+function getPostBox() {
     include_once("./includes/body-part/posts.php");
 }
 

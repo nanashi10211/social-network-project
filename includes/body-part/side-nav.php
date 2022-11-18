@@ -8,6 +8,7 @@
     $index = preg_match_all($indexPattern, $_SERVER['PHP_SELF']);
     $profile = preg_match_all($profilePattern, $_SERVER['PHP_SELF']);
     
+    
     ?>
 <!-- 
 ....................................................................        

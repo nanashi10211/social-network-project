@@ -5,7 +5,13 @@
         <div class="profile-link">
             <a href="#"  class="user-profile">
                 <div class="avatar">
-                    <img src="./public/images/default-avatar.png" />
+                    <?php 
+                        if($_SESSION['avatar']) {
+                            echo '<img src="'.$_SESSION['avatar'].'" alt="">';
+                        } else {
+                            echo ' <img src="./public/images/default-avatar.png" alt="">';
+                        }
+                    ?>
                 </div>
                 <div class="info">
                     <span class="username"><?php

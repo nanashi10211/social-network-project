@@ -107,7 +107,7 @@ class Model {
 
             }
         }
-        $sql .= " WHERE PersonID=".$id;
+        $sql .= " WHERE id=".$id;
        
         // update database recored
         if(!mysqli_query($this->conn, $sql)) {
@@ -159,6 +159,27 @@ class Model {
         } else {
             $sql .= "* FROM ".$this->name;
         }
+
+        $data = Array();
+
+       // fetch data from database
+       $res = mysqli_query($this->conn, $sql);
+
+       if (mysqli_num_rows($res) > 0) {
+            while($row = mysqli_fetch_assoc($res)) {
+               array_push($data, $row);
+            }
+       }
+       return $data;
+     }
+
+    // conditional select
+    public function findAllByCondition($condition) {
+        $sql = "SELECT ";
+       
+        $sql .= "* FROM ".$this->name;
+        $sql .= " ".$condition;
+        
 
         $data = Array();
 

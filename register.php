@@ -113,7 +113,7 @@
                     <!-- side content box -->
                     <div class="side-content-box">
                         <!-- <img src="./public/images/start.jpg" alt="image"> -->
-                        <h1>Welcome to <br><span>POPCORN</span></h1>
+                        <h1>Welcome to PU social club<br><span>POPCORN</span></h1>
                         <p>Login <a href="login">here</a>  if you already have an account</p>
                     </div>
                        <!-- register form -->

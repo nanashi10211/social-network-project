@@ -532,6 +532,15 @@ body {
     justify-content: start;
 
 }
+.post .post-action .react-action-box button {
+    border: 0;
+    background: transparent;
+    transition: 0.2s;
+}
+
+.post .post-action .react-action-box button:hover {
+    transform: scale(1.1);
+}
 
 .react-counter {
     font-size: 15px;
@@ -722,6 +731,10 @@ body {
    justify-content: start;
 }
 
+.messanger-ref .messanger-header span {
+    text-transform: capitalize;
+}
+
 .messanger-ref .messanger-header .avatar {
     height: 35px;
     width: 35px;
@@ -796,7 +809,7 @@ body {
 /* send message style */
 .messanger-ref .messanger-ref-body .messages .send-message {
         justify-content: end;
-        background-color: #f3f3f3;
+        background-color: transparent;
         border-radius: 20px;
         margin-left: 100px;
 }
@@ -936,6 +949,7 @@ body {
 
 .form-page-container .side-content-box h1 {
     font-size: 40px;
+    padding: 0px 50px;
 }
 
 .form-page-container .side-content-box h1 span {
