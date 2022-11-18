@@ -11,13 +11,21 @@ function new_post($post, $user, $comment) {
         <!-- in title show post owner image and post title and post time -->
         <div class="post-title">
             <a href="#" class="avatar">
-                <img src="./public/images/start.jpg" alt="" />
+                <?php 
+                 $post_user = $user->find("id=".$post['user_id']);
+                 if($post_user[0]['avatar']) {
+                    echo '<img src="'.$_SESSION['avatar'].'" alt="">';
+                } else {
+                    echo ' <img src="./public/images/default-avatar.png" alt="">';
+                }
+                
+                ?>
             </a>
             <span class="name">
                 <?php
-                    $post_user = $user->find("id=".$post['user_id']);
+                   
                     echo $post_user[0]['name'];
-                    // print_r($post_user);
+                  
                 ?>
             </span>
            
