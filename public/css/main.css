@@ -119,6 +119,11 @@ body {
     justify-content: start;
     padding: 20px 0px;
 }
+.side-nav .side-nav-box .brand-name a {
+    color: #000;
+    font-size: 40px;
+    font-weight: 700;
+}
 
 /* ======================= user profile list box =======================*/
 .side-nav-box .user-profile {

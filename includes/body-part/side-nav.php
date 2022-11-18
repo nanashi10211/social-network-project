@@ -19,7 +19,7 @@
             <div class="side-nav-box">
                 <!-- brand name -->
                 <div class="brand-name">
-                    <h1>Popcorn</h1>
+                    <a href="./">Popcorn</a>
                 </div>
 
                 <ul class="list-group list-group-flush side-nav-box-list ">
