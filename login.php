@@ -6,6 +6,10 @@
     loginRegisterRedirect();
    
 ?>
+<!-- set page title -->
+<script>
+    document.title = "Login";
+</script>
 <?php
     // login user var
     $username = "";

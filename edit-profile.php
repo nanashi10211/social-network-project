@@ -133,7 +133,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
 <!-- page header -->
 <?php getHeader(); ?>
-
+<!-- set page title -->
+<script>
+    document.title = "Edit-profile";
+</script>
 <!-- main body -->
 <div class="container-fluid">
     <!-- content row start -->

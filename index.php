@@ -13,7 +13,10 @@ indexRedirect();
 
 <!-- page header -->
 <?php getHeader(); ?>
-
+<!-- set page title -->
+<script>
+    document.title = "Home";
+</script>
 <!-- main body -->
 <div class="container-fluid">
     <!-- content row start -->
@@ -38,7 +41,7 @@ indexRedirect();
                 $all_post = $post->select();
                 arsort($all_post);
                 foreach($all_post as $post) {
-                    new_post($post, $user, $comment);
+                    new_post($post, $user, $comment, "index");
                 }
                
                ?>

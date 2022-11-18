@@ -1,7 +1,7 @@
 <?php
 
 
-function new_post($post, $user, $comment) {
+function new_post($post, $user, $comment, $page) {
 
 ?>
 
@@ -28,6 +28,11 @@ function new_post($post, $user, $comment) {
                   
                 ?>
             </span>
+            <?php if($page == "profile") { ?>
+            <a class="btn-delete" href="./delete-post.php?p=<?php echo $post['id']; ?>">
+                delete
+            </a>
+            <?php } ?>
            
         </div>
         <!-- in post image will show post image ,if any -->

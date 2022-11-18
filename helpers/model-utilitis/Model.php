@@ -131,6 +131,9 @@ class Model {
         // perform action
         if(!mysqli_query($this->conn, $sql)) {
             echo "Error: ".$sql.mysqli_error($this->conn);
+            return false;
+        } else {
+            return true;
         }
     }
 

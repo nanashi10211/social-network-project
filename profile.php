@@ -12,7 +12,10 @@ notLogin404();
 
 <!-- page header -->
 <?php getHeader(); ?>
-
+<!-- set page title -->
+<script>
+    document.title = "Profile";
+</script>
 <!-- main body -->
 <div class="container-fluid">
     <!-- content row start -->
@@ -77,7 +80,7 @@ notLogin404();
                 $all_post = $post->findAllByCondition("WHERE user_id=".$_SESSION['id']);
                 arsort($all_post);
                 foreach($all_post as $post) {
-                    new_post($post, $user, $comment);
+                    new_post($post, $user, $comment, "profile");
                 }
                
                ?>

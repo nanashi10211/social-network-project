@@ -98,7 +98,10 @@
 ?>
 <!-- page header -->
 <?php getHeader(); ?>
-
+<!-- set page title -->
+<script>
+    document.title = "Register";
+</script>
 <!-- main body -->
 <div class="container-fluid">
     <!-- content row start -->

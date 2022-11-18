@@ -87,7 +87,23 @@ body {
     font-weight: 600;
     line-height: 1.4;
 }
-
+/* delete button */
+.btn-delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 15px;
+    text-transform: uppercase;
+    background: var(--danger-clr);
+    color: #fff;
+    font-weight: 700;
+    margin-left: 20px;
+    border-radius: 20px;
+}
+.btn-delete:hover {
+    background: var(--danger-clr-hover);
+    color: #fff;
+}
 
 /* 
 ...................................................................................................................................

@@ -13,7 +13,10 @@ notLogin404();
 
 <!-- page header -->
 <?php getHeader(); ?>
-
+<!-- set page title -->
+<script>
+    document.title = "Messanger";
+</script>
 <!-- main body -->
 <div class="container-fluid">
     <!-- content row start -->
