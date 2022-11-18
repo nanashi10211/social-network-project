@@ -891,7 +891,7 @@ body {
 .action-box {
     display: flex;
     align-items: center;
-    margin: 10px 100px;
+    margin: 10px 50px;
 }
 .action-box button {
     border: 0;
@@ -908,16 +908,23 @@ body {
     margin: 30px 0px;
 }
 .edit-field .field {
-    flex: 4;
+    flex: 3;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    box-sizing: border-box;
+    padding-left: 50px;
 }
 .edit-field .value {
-    flex: 8;
+    flex: 9;
+}
+.edit-field .value input {
+    width: 100%;
+    outline: none;
 }
 .image-change label {
     color: var(--link-clr);
+    cursor: pointer;
 }
 .image-change input {
     display: none;

@@ -10,6 +10,15 @@ notLogin404();
     include_once("./functions/views.php");
    
 ?>
+
+<?php
+// update profile info
+if($_SERVER['REQUEST_METHOD'] == "POST") {
+   //@TODO update profile info
+}
+
+
+?>
 <!-- '''''''''''''''''''''''''''''''''''edit profile page''''''''''''''''''''''''''''''''''''' -->
 
 <!-- page header -->
@@ -27,16 +36,26 @@ notLogin404();
             <div class="mid-content-box">
                 <!-- prifile edit form -->
                 <div class="profile-edit-box">
-                    <form action="#" method="post">
+                    <form method="post">
                         <!-- sigle field -->
                         <div class="edit-field">
                             <div class="field">
                                 <div class="avatar">
-                                    <img src="./public/images/default-avatar.png" alt="img"/>
+                                    <?php 
+                                        if($_SESSION['avatar']) {
+                                            echo '<img src="'.$_SESSION['avatar'].'" alt="">';
+                                        } else {
+                                            echo ' <img src="./public/images/default-avatar.png" alt="">';
+                                        }
+                                    ?>
                                 </div>
                             </div>
                             <div class="value">
-                                <span class="uname">username</span>
+                                <span class="uname">
+                                    <?php
+                                    echo $_SESSION['name'];
+                                    ?>
+                                </span>
                                 <div class="image-change">
                                     <label for="file">Change profile picture</label>
                                     <input type="file" id="file" />
@@ -47,10 +66,30 @@ notLogin404();
                         <!-- single field start -->
                         <div class="edit-field">
                            <div class="field">
-                                <label for="name">Display name</label>
+                                <label for="name">Display_name:</label>
                             </div>
                             <div class="value">
-                                <input type="text" id="name" />
+                                <input type="text" id="name" value="<?php echo $_SESSION['name'] ?>" />
+                            </div>
+                        </div>
+                        <!-- single field end -->
+                        <!-- single field start -->
+                        <div class="edit-field">
+                           <div class="field">
+                                <label for="name">Username:</label>
+                            </div>
+                            <div class="value">
+                                <input type="text" id="name" value="<?php echo $_SESSION['username'] ?>" />
+                            </div>
+                        </div>
+                        <!-- single field end -->
+                         <!-- single field start -->
+                         <div class="edit-field">
+                           <div class="field">
+                                <label for="name">Email: </label>
+                            </div>
+                            <div class="value">
+                                <input type="text" id="name" readonly value="<?php echo $_SESSION['email'] ?>" />
                             </div>
                         </div>
                         <!-- single field end -->
