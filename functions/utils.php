@@ -6,8 +6,6 @@ include_once("./config/session.php");
 // key
 $key = $config['secret_key'];
 
-
-
 // verify session and redirect 
 function indexRedirect() {
     if(!$_SESSION['is_login']) {
@@ -30,12 +28,10 @@ function notLogin404() {
     }
 }
 
-
 // get verify input
 function getVerifyInput() {
     include_once('./helpers/verify-input/validate-input.php');
 }
-
 
 // password hashed
 function hashed_password($pwd) {

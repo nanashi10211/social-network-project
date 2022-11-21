@@ -9,8 +9,6 @@
 ?>
 
 <?php 
-   
-
     // error object
     $errors = Array();
     $success = "";
@@ -111,7 +109,6 @@
         <div class="offset-1 col-md-10 mid-content">
             <div class="mid-content-box">
              
-             
                 <div class="form-page-container">
                     <!-- side content box -->
                     <div class="side-content-box">
@@ -164,7 +161,6 @@
                                 }
                                 
                                 ?>
-                               
 
                             </div>
     

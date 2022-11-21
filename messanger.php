@@ -7,7 +7,6 @@ notLogin404();
 
 <?php
     include_once("./functions/views.php");
-   
 ?>
 <!-- '''''''''''''''''''''''''''''''''''messanger page''''''''''''''''''''''''''''''''''''' -->
 

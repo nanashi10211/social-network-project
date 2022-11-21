@@ -41,14 +41,12 @@ class Model {
                 $sql .= $key ." ". $val . ",";
             }
         }
-
         /**
          * create model to the database
          */
         if (!mysqli_query($this->conn, $sql)) {
             echo "Table creation failed ".mysqli_error($this->conn);
         } 
-
     }
 
     /**
@@ -74,7 +72,6 @@ class Model {
             }
         }
         $sql .= "(".$keys.") VALUES ( ". $values . ")";
-
         /**
          * Insert data to database
          */
@@ -85,7 +82,6 @@ class Model {
             return true;
         }
     }
-
     /**
      * ......................................
      * update model by id
@@ -108,7 +104,6 @@ class Model {
             }
         }
         $sql .= " WHERE id=".$id;
-       
         // update database recored
         if(!mysqli_query($this->conn, $sql)) {
             echo "Error: ".$sql."<br>".mysqli_error($this->conn);
@@ -117,7 +112,6 @@ class Model {
             return true;
         }
     }
-
     /**
      * ................................
      * delete model data by id
@@ -127,7 +121,6 @@ class Model {
     public function delete($field) {
         // delete query
         $sql = "DELETE FROM ".$this->name." WHERE ".$field[0]."=".$field[1];
-
         // perform action
         if(!mysqli_query($this->conn, $sql)) {
             echo "Error: ".$sql.mysqli_error($this->conn);
@@ -144,7 +137,6 @@ class Model {
      * Ex2: select()
      * ..............................
      */
-
      public function select($object = Array()) {
         $sql = "SELECT ";
         $cnt = count($object);
@@ -162,12 +154,9 @@ class Model {
         } else {
             $sql .= "* FROM ".$this->name;
         }
-
         $data = Array();
-
        // fetch data from database
        $res = mysqli_query($this->conn, $sql);
-
        if (mysqli_num_rows($res) > 0) {
             while($row = mysqli_fetch_assoc($res)) {
                array_push($data, $row);
@@ -178,17 +167,12 @@ class Model {
 
     // conditional select
     public function findAllByCondition($condition) {
-        $sql = "SELECT ";
-       
-        $sql .= "* FROM ".$this->name;
-        $sql .= " ".$condition;
-        
-
-        $data = Array();
-
+       $sql = "SELECT ";
+       $sql .= "* FROM ".$this->name;
+       $sql .= " ".$condition;
+       $data = Array();
        // fetch data from database
        $res = mysqli_query($this->conn, $sql);
-
        if (mysqli_num_rows($res) > 0) {
             while($row = mysqli_fetch_assoc($res)) {
                array_push($data, $row);
@@ -204,7 +188,6 @@ class Model {
     function find($condition) {
         $sql ="SELECT * FROM ".$this->name;
         $sql .= " WHERE ".$condition;
-
         $data = Array();
         // fetch data
         $res = mysqli_query($this->conn, $sql);
@@ -215,8 +198,6 @@ class Model {
        }
        return $data;
     }
-
-
     /**
     *...............................
     *  @return model name 
@@ -225,8 +206,6 @@ class Model {
     public function getName() {
         return $this->name;
     }
-
-
     /**
     *.............................
     * @return model fields

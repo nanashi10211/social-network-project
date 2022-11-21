@@ -11,9 +11,14 @@ if(isset($_GET['p'])) {
         $_GET['p']
     ]);
     if($result) {
+        $total_post = $post->find("user_id='".$_SESSION['id']."'");
+        $_SESSION['posts'] = $total_post;
         echo "<script>history.back()</script>";
+        
     } else {
         include_once("./404.php");
     }
+} else {
+    include_once("./404.php");
 }
 

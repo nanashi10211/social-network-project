@@ -4,7 +4,6 @@ include_once("./functions/utils.php");
 notLogin404();
 ?>
 
-
 <?php
     include_once("./functions/views.php");
 ?>
