@@ -3,14 +3,6 @@
 include_once("./functions/utils.php");
 
 
-// $indexPattern = "/index/i";
-// $profilePattern = "/profile/i";
-
-// $index = preg_match_all($indexPattern, $_GET['s']);
-// $profile = preg_match_all($profilePattern, $_GET['s']);
-
-
-
 // post comments
 if($_SERVER['REQUEST_METHOD'] == "POST") {
     
