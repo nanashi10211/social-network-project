@@ -72,12 +72,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     $index = preg_match_all($indexPattern, $_GET['r']);
                     $profile = preg_match_all($profilePattern, $_GET['r']);
 
-                    // if($index > 0) {
-                    //     header("Location: ./");
-                    // }
-                    // if($profile > 0) {
-                    //     header("Location: ./profile");
-                    // }
+                   
                     echo "<script>";
                     echo "history.back()";
                     echo "</script>";
