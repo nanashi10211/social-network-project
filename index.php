@@ -43,7 +43,9 @@ indexRedirect();
                 foreach($all_post as $post) {
                     new_post($post, $user, $comment, "index");
                 }
-               
+                if($all_post == NULL) {
+                    echo "<center style='padding: 50px 0px'>There is no activity in this app!!</center>";
+                }
                ?>
 
             </div>

@@ -257,7 +257,7 @@ notLogin404();
                         </div>
                         <?php  } else { ?>
                             <div style="display: flex;align-items: center;justify-content: center; height: 100%; color: green;font-size: 30px">
-                                Select message
+                                <i class="fa-solid fa-calendar-circle-exclamation"></i>
                             </div>
                             <?php } ?>
                         <!--  -->

@@ -22,7 +22,7 @@
                     <span class="username"><?php
                         echo $_SESSION['name']
                     ?></span>
-                    <span class="designation">student</span>
+                    <!-- <span class="designation">student</span> -->
                 </div>
             </a>
         </div>
@@ -36,6 +36,7 @@
                 $all_members = $user->select();
                
             foreach($all_members as $members) {
+                if($members['id'] !== $_SESSION['id']) {
                 $query = "WHERE sender_id=".$members['id']." and reciver_id=".$_SESSION['id'];
                 $ms = $message->findAllByCondition($query);
             ?>
@@ -76,7 +77,7 @@
                     </div>
                 </a>
             </li>
-            <?php } ?>
+            <?php }  } ?>
            <!-- /\/\/\/\/\ -->
         </ul>
     </div>

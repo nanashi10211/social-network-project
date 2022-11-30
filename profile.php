@@ -81,6 +81,10 @@ notLogin404();
                 foreach($all_post as $post) {
                     new_post($post, $user, $comment, "profile");
                 }
+
+                if($all_post == NULL) {
+                    echo "<center style='padding: 50px 0px'>You don't have any activity on this app!!</center>";
+                }
                
                ?>
 

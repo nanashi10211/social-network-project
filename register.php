@@ -81,12 +81,8 @@
                 $username = "";
                 $email = "";
                 $success = "User register successfully";
-            }
-
-                                
+            }                    
         }
-
-        
     }
 
 ?>
