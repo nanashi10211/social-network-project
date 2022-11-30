@@ -138,7 +138,7 @@ notLogin404();
                     </div>
 
                   
-                    <!-- main messanger body -->
+                    <!-- messanger body -->
                     <div class="messanger-ref">
 
                         <?php 
@@ -236,10 +236,8 @@ notLogin404();
                                     const reciver = e.target.reciver.value;
                                     const object = "sender="+sender+"&reciver="+reciver+"&msg="+msg;
                                     
-                                   
                                     let xmlhttp = new XMLHttpRequest();
 
-                                  
                                     xmlhttp.open("POST", "send-message.php", true);
 
                                     xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
