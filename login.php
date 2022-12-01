@@ -28,7 +28,7 @@
         if(strlen($username) > 0 && strlen($password) > 0) {
             $req_user = $user->find("username='$username' OR email='$username'");
             // print_r($req_user);
-            if(count($req_user) < 0) {
+            if(count($req_user) <= 0) {
                 $error = true;
             } else {
                 if(verify_password($password, $req_user[0]['password'])) {
